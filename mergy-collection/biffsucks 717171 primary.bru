@@ -1,0 +1,26 @@
+meta {
+  name: biffsucks 717171 primary
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base}}/identity
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "biffsucks@hillvalley.edu",
+    "phoneNumber": 717171
+  }
+}
+
+assert {
+  res.status: eq 200
+  res.body.contact.primaryContatctId: isDefined
+  res.body.contact.secondaryContactIds: isEmpty
+  res.body.contact.emails: matches ["biffsucks@hillvalley.edu"]
+  res.body.contact.phoneNumbers: matches [717171]
+}

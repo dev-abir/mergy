@@ -1,0 +1,16 @@
+meta {
+  name: delete all
+  type: http
+  seq: 1
+}
+
+delete {
+  url: {{base}}/identity
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body: gte 0
+}

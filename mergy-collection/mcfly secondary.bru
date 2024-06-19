@@ -1,0 +1,26 @@
+meta {
+  name: mcfly secondary
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{base}}/identity
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "mcfly@hillvalley.edu",
+    "phoneNumber": "123456"
+  }
+}
+
+assert {
+  res.status: eq 200
+  res.body.contact.primaryContatctId: isDefined
+  res.body.contact.secondaryContactIds: length 1
+  res.body.contact.emails: matches ["mcfly@hillvalley.edu"]
+  res.body.contact.phoneNumbers: matches [123456]
+}

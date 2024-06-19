@@ -1,0 +1,26 @@
+meta {
+  name: lorraine primary
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{base}}/identity
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "lorraine@hillvalley.edu",
+    "phoneNumber": "123456"
+  }
+}
+
+assert {
+  res.status: eq 200
+  res.body.contact.primaryContatctId: isDefined
+  res.body.contact.secondaryContactIds: isEmpty
+  res.body.contact.emails: matches ["lorraine@hillvalley.edu"]
+  res.body.contact.phoneNumbers: matches [123456]
+}

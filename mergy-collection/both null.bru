@@ -1,0 +1,22 @@
+meta {
+  name: both null
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{base}}/identity
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": null,
+    "phoneNumber": null
+  }
+}
+
+assert {
+  res.status: eq 400
+}

@@ -1,0 +1,25 @@
+meta {
+  name: lorraine null
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{base}}/identity
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "lorraine@hillvalley.edu",
+    "phoneNumber": null
+  }
+}
+
+tests {
+  test("same body as of previous", () => {
+    const data = res.getBody();
+    expect(data).to.deep.equal(bru.getVar("body"));
+  });
+}

@@ -1,0 +1,16 @@
+meta {
+  name: get all
+  type: http
+  seq: 14
+}
+
+get {
+  url: {{base}}/identity
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body: length 4
+}

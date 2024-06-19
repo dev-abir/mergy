@@ -1,0 +1,25 @@
+meta {
+  name: null 123456
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{base}}/identity
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": null,
+    "phoneNumber": "123456"
+  }
+}
+
+tests {
+  test("same body as of previous", () => {
+    const data = res.getBody();
+    expect(data).to.deep.equal(bru.getVar("body"));
+  });
+}
