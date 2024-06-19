@@ -1,0 +1,11 @@
+[Unit]
+Description=mergy backend
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/git/mergy
+ExecStart=/home/ubuntu/git/mergy/start.bash
+# Restart=on-failure
+[Install]
+WantedBy=multi-user.target
