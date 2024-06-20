@@ -6,7 +6,7 @@ To respect the techstack preference, I have used Nest.js and postgres. Then, to 
 
 I tried using supertest and jest (provided by nest.js), but I felt some inconsistencies (or maybe a skill issue on my side?). I just directly did an end-to-end test.
 
-> Live at: http://13.201.78.251:100/docs \
+> Live at: https://dev-abir.github.io/l/mergy \
 > Swagger docs: http://localhost:3000/docs
 
 ## Run
